@@ -8,6 +8,8 @@ public interface IGameObjectStatus
 
     public void SetHP(float hp);
     public float GetHP();
+
+    public void takenDamage(float hp);
     public UnitsType.UnitType GetUnitsType();
     public string getUnitsName();
     public void ResetSetting();

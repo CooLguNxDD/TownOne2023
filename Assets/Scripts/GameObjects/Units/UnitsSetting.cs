@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class UnitsSetting : MonoBehaviour, IGameObjectStatus
 {
@@ -26,10 +27,11 @@ public class UnitsSetting : MonoBehaviour, IGameObjectStatus
 
     private float attackRange;
 
+    
     void Awake()
     {
         ResetSetting();
-        Debug.Log("Spawned Unit " + UnitsName);
+        // Debug.Log("Spawned Unit " + UnitsName);
     }
     public void ResetSetting()
     {
@@ -78,5 +80,10 @@ public class UnitsSetting : MonoBehaviour, IGameObjectStatus
     public float GetHP()
     {
         return HP;
+    }
+
+    public void takenDamage(float hp)
+    {
+        this.HP -= hp;
     }
 }

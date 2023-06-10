@@ -89,4 +89,9 @@ public class BuildingSetting : MonoBehaviour, IGameObjectStatus
     {
         return BuildingName;
     }
+
+    public void takenDamage(float hp)
+    {
+        this.HP -= hp;
+    }
 }
