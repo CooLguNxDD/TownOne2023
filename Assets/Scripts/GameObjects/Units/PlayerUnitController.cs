@@ -8,30 +8,44 @@ using UnityEngine.AI;
 
 public class PlayerUnitController : MonoBehaviour, IUnitBehavior
 {
-    // Start is called before the first frame update
 
+    //public class
     public UnitsSetting unitsSetting;
     public NavMeshAgent NavMeshAgent;
-    
+
+    //Targets
     private bool targetFound;
     [SerializeField]
     private GameObject currentTargetObject;
     [SerializeField]
     private GameObject nextTargetWallObject;
 
+    //Counters
     private float nextTargetCountDownTimer;
     private float nextWallCountDownTimer;
 
+
+    //Animation part
     public event EventHandler OnDeathAnimation;
+    [SerializeField]
+    private dissolverController animationController;
+
+    //logic
+    private bool isDeath;
+    private bool isAttacking;
+    
     void Start()
     {
+        isDeath = false;
         nextTargetCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
         nextWallCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
+        animationController.OnDeathAnimationEnded += DeathAfterAnimation;
         targetFound = false;
     }
     // Update is called once per frame
     void Update()
     {
+        if(isDeath) return;
         //start seeking
         SeekEnemy();
         //start Nav
@@ -42,7 +56,8 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         if (unitsSetting.GetHP() <= 0)
         {
             // reach 0 HP, set it to inactive
-            gameObject.SetActive(false);
+            isDeath = true;
+            OnDeathAnimation?.Invoke(this, EventArgs.Empty);
         }
 
         // seek the next closer enemy after countdown
@@ -56,6 +71,9 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
             }
         }
     }
+    private void DeathAfterAnimation(object sender, System.EventArgs e){
+        gameObject.SetActive(false);
+    }
 
     //test the chasing area
     void OnDrawGizmos()
@@ -64,31 +82,28 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         Gizmos.DrawWireSphere(transform.position, unitsSetting.GetChaseRange());
     }
 
-    public void setNavMeshSpeed(float speed){
-        NavMeshAgent.speed = speed;
-    }
-
     public void Attack(){
 
-        if(!currentTargetObject) return;
+        if(!currentTargetObject) {
+            isAttacking = false;
+            return;};
         // Debug.Log(unitsSetting.getAttackRange());
         // Debug.Log(Vector3.Distance(transform.position, currentTargetObject.transform.position));
-
         if(Vector3.Distance(transform.position, currentTargetObject.transform.position) < unitsSetting.getAttackRange()){
             setNavMeshSpeed(0f);
+            isAttacking = true;
             IGameObjectStatus targetStatus = currentTargetObject.GetComponent<IGameObjectStatus>();
-            targetStatus.SetHP(targetStatus.GetHP() - unitsSetting.getAttackDamage());
+            targetStatus.takenDamage(unitsSetting.getAttackDamage());
             Debug.Log("target damaged: " + targetStatus.GetHP());
             unitsSetting.SetHP(0f); //killed when reached the wall
         }
-        
-        
     }
 
     //find the closest enemy
     public void SeekEnemy()
     {
         //TODO: need performance check right here
+        if(isAttacking) return;
 
         //if not target found yet
         if(!targetFound){
@@ -120,9 +135,19 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         }
     }
 
-
+        public void setNavMeshSpeed(float speed){
+        // if(speed <= 0f){
+        //     NavMeshAgent.enabled = false;
+        // }
+        // else{
+        //     NavMeshAgent.enabled = true;
+        // }
+        NavMeshAgent.speed = speed;
+    }
 
     public void StartNav(){
+        if(isAttacking) return;
+
         //set destination to a enemy
         if(targetFound){
             NavMeshAgent.SetDestination(currentTargetObject.transform.position);

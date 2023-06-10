@@ -64,7 +64,7 @@ public class ObjectPool : MonoBehaviour
             Debug.Log(target_tag + "not exist");
             return null;
         }
-        Debug.Log(target_tag + "is spawning");
+        // Debug.Log(target_tag + "is spawning");
 
         GameObject spawnObj = PoolDictionary[target_tag].Dequeue();
         spawnObj.SetActive(true);
