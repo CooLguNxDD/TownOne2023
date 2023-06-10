@@ -49,6 +49,10 @@ public class UnitsSetting : MonoBehaviour, IGameObjectStatus
         attackRange = UnitsScriptableObject.attackRange;
     }
 
+    public void ResetAll(){
+        ResetSetting();
+    }
+
     public float getWalkingSpeed(){
         return WalkingSpeed;
     }

@@ -9,21 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572bfb81fc7f85446b9db4e00430a2bb, type: 3}
-  m_Name: testPlayerBuilding1
+  m_Script: {fileID: 11500000, guid: ef1b487cd776fca46a36c3ef2b147b7e, type: 3}
+  m_Name: test3
   m_EditorClassIdentifier: 
-  BuildingUID: 99
-  BuildingTag: TestPlayerBuilding1
+  UnitsUID: 0
+  UnitsTag: 
   UnitsType: 0
-  BuildingName: TestPlayerBuilding1
-  HP: 100
+  AttackType: 0
+  UnitsName: 
   level: 0
+  HP: 0
   Damage: 0
   Defence: 0
   WalkingSpeed: 0
   ChaseRange: 0
   AttackSpeed: 0
-  SpawnObject: {fileID: 6775160313621422478, guid: 858efb5fe8afb184fa470163952a44c1,
-    type: 3}
-  SpawnRate: 0.5
-  NumberOfSpawn: 2
+  attackRange: 0

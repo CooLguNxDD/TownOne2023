@@ -14,6 +14,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
     public NavMeshAgent NavMeshAgent;
 
     //Targets
+    [SerializeField]
     private bool targetFound;
     [SerializeField]
     private GameObject currentTargetObject;
@@ -21,7 +22,9 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
     private GameObject nextTargetWallObject;
 
     //Counters
+    [SerializeField]
     private float nextTargetCountDownTimer;
+    [SerializeField]
     private float nextWallCountDownTimer;
 
 
@@ -31,7 +34,10 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
     private dissolverController animationController;
 
     //logic
+    [SerializeField]
     private bool isDeath;
+
+    [SerializeField]
     private bool isAttacking;
     
     void Start()
@@ -41,10 +47,12 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         nextWallCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
         animationController.OnDeathAnimationEnded += DeathAfterAnimation;
         targetFound = false;
+        isAttacking = false;
     }
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(unitsSetting.GetHP());
         if(isDeath) return;
         //start seeking
         SeekEnemy();
@@ -66,13 +74,18 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
             nextTargetCountDownTimer -= Time.deltaTime;
             if(nextTargetCountDownTimer < 0f){
                 targetFound = false;
+                
                 nextTargetCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
-                //Debug.Log("next target");
+                Debug.Log("next target");
             }
         }
     }
     private void DeathAfterAnimation(object sender, System.EventArgs e){
+        isAttacking = false;
+        isDeath = false;
+        unitsSetting.ResetSetting();
         gameObject.SetActive(false);
+
     }
 
     //test the chasing area
@@ -95,7 +108,12 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
             IGameObjectStatus targetStatus = currentTargetObject.GetComponent<IGameObjectStatus>();
             targetStatus.takenDamage(unitsSetting.getAttackDamage());
             Debug.Log("target damaged: " + targetStatus.GetHP());
+
             unitsSetting.SetHP(0f); //killed when reached the wall
+        
+        }
+        else{
+            setNavMeshSpeed(unitsSetting.getWalkingSpeed());
         }
     }
 
