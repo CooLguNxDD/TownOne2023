@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5987381768398297283
+--- !u!1 &3115835195520562174
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5987381768398297280}
-  - component: {fileID: 5987381768398297295}
-  - component: {fileID: 5987381768398297294}
-  - component: {fileID: 5987381768398297281}
-  - component: {fileID: 5987381768398297292}
-  - component: {fileID: 5987381768398297293}
+  - component: {fileID: 3115835195520562173}
+  - component: {fileID: 3115835195520562162}
+  - component: {fileID: 3115835195520562163}
+  - component: {fileID: 3115835195520562172}
+  - component: {fileID: 3115835195520562161}
+  - component: {fileID: 3115835195520562160}
   m_Layer: 0
   m_Name: Base1
   m_TagString: Untagged
@@ -21,36 +21,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5987381768398297280
+--- !u!4 &3115835195520562173
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5987381768398297283}
+  m_GameObject: {fileID: 3115835195520562174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 112.3, y: 0.28, z: 0}
+  m_LocalPosition: {x: 48.2, y: 0.28, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5987381768398297295
+--- !u!33 &3115835195520562162
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5987381768398297283}
+  m_GameObject: {fileID: 3115835195520562174}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5987381768398297294
+--- !u!23 &3115835195520562163
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5987381768398297283}
+  m_GameObject: {fileID: 3115835195520562174}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,26 +86,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5987381768398297281
+--- !u!65 &3115835195520562172
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5987381768398297283}
+  m_GameObject: {fileID: 3115835195520562174}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5987381768398297292
+--- !u!114 &3115835195520562161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5987381768398297283}
+  m_GameObject: {fileID: 3115835195520562174}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d59775147f553143964462ce8184973, type: 3}
@@ -114,13 +114,13 @@ MonoBehaviour:
   buildingScriptableObject: {fileID: 11400000, guid: 1a49aee79f10c5f409cdc5d472b21d40,
     type: 2}
   UnitsType: 0
---- !u!114 &5987381768398297293
+--- !u!114 &3115835195520562160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5987381768398297283}
+  m_GameObject: {fileID: 3115835195520562174}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75c4a7d0fff662c418ed6286f2712fe6, type: 3}
@@ -128,4 +128,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPool: {fileID: 0}
   spawnObjectTag: PlayerUnit1
-  buildingSetting: {fileID: 5987381768398297292}
+  buildingSetting: {fileID: 3115835195520562161}

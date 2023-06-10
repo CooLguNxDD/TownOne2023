@@ -25,5 +25,5 @@ MonoBehaviour:
   AttackSpeed: 0
   SpawnObject: {fileID: 6775160313621422478, guid: 858efb5fe8afb184fa470163952a44c1,
     type: 3}
-  SpawnRate: 0.5
-  NumberOfSpawn: 2
+  SpawnRate: 20
+  NumberOfSpawn: 1
