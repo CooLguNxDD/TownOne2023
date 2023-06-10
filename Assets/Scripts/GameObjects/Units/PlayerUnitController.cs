@@ -55,7 +55,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(unitsSetting.GetHP());
+        // Debug.Log(unitsSetting.GetHP());
         if(isDeath) return;
         //start seeking
         SeekEnemy();
@@ -79,7 +79,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
                 targetFound = false;
                 
                 nextTargetCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
-               //Debug.Log("next target");
+                // Debug.Log("next target");
             }
         }
     }

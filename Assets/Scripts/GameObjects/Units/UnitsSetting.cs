@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class UnitsSetting : MonoBehaviour, IGameObjectStatus
+public class UnitsSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
 {
 
     public UnitsScriptableObject UnitsScriptableObject;
@@ -27,7 +27,8 @@ public class UnitsSetting : MonoBehaviour, IGameObjectStatus
 
     private float attackRange;
 
-    
+    public event EventHandler<IHasHpBar.OnHpChangedEventArgs> OnHpChanged;
+
     void Awake()
     {
         ResetSetting();
@@ -79,6 +80,11 @@ public class UnitsSetting : MonoBehaviour, IGameObjectStatus
     public void SetHP(float hp)
     {
         this.HP = hp;
+        OnHpChanged?.Invoke(this, new IHasHpBar.OnHpChangedEventArgs
+        {
+            HpNormalized = HP / UnitsScriptableObject.HP
+            
+        });
     }
 
     public float GetHP()
@@ -89,5 +95,10 @@ public class UnitsSetting : MonoBehaviour, IGameObjectStatus
     public void takenDamage(float hp)
     {
         this.HP -= hp;
+        OnHpChanged?.Invoke(this, new IHasHpBar.OnHpChangedEventArgs
+        {
+            HpNormalized = HP / UnitsScriptableObject.HP
+            
+        });
     }
 }
