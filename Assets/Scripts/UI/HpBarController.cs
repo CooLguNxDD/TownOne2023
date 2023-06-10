@@ -16,6 +16,8 @@ public class HpBarController : MonoBehaviour
 
     private IHasHpBar hasHp;
 
+    private float LookAtCounter;
+
 
     private void Start() {
         mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
@@ -28,12 +30,18 @@ public class HpBarController : MonoBehaviour
         hasHp.OnHpChanged += HasProgress_OnProgressChanged;
 
         barImage.fillAmount = 1f;
+        LookAtCounter = 0f;
 
         Show();
     }
     private void Update(){
-        barImage.transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.back, mainCamera.transform.rotation * Vector3.up);
-        barImageBG.transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.back, mainCamera.transform.rotation * Vector3.up);
+        LookAtCounter -= Time.deltaTime;
+        if(LookAtCounter < 0){
+            barImage.transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.back, mainCamera.transform.rotation * Vector3.up);
+            barImageBG.transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.back, mainCamera.transform.rotation * Vector3.up);
+            LookAtCounter = 0.25f;
+        }
+
     //    transform.Rotate(0,180,0);
     }
 
