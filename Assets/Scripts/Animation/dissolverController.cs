@@ -77,6 +77,7 @@ public class dissolverController : MonoBehaviour
         {
             material.SetFloat(DissolveRef, 0f);
         }
+        effect.Stop();
         OnDeathAnimationEnded?.Invoke(this, EventArgs.Empty);
         yield return null;
     }

@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -878,7 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pools:
   - new_tag: PlayerUnit1
-    prefeb: {fileID: 6775160313621422478, guid: 858efb5fe8afb184fa470163952a44c1,
+    prefeb: {fileID: 6775160313621422478, guid: 00cca96ed6788d743aabfabeefcf78ad,
       type: 3}
     size: 200
 --- !u!1 &2015232357

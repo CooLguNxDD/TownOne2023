@@ -81,7 +81,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
                 targetFound = false;
                 
                 nextTargetCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
-               //Debug.Log("next target");
+                // Debug.Log("next target");
             }
         }
         */
