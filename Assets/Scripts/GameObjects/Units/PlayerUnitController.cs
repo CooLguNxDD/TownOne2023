@@ -36,6 +36,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
 
     //Animation part
     public event EventHandler OnDeathAnimation;
+    public event EventHandler OnDropShieldEvent;
     [SerializeField]
     private dissolverController animationController;
 
@@ -75,6 +76,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         {
             // reach 0 HP, set it to inactive
             isDeath = true;
+            OnDropShieldEvent?.Invoke(this,EventArgs.Empty);
             OnDeathAnimation?.Invoke(this, EventArgs.Empty);
         }
 
@@ -182,7 +184,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
 
     }
 
-        public void setNavMeshSpeed(float speed){
+    public void setNavMeshSpeed(float speed){
         // if(speed <= 0f){
         //     NavMeshAgent.enabled = false;
         // }
@@ -212,27 +214,50 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         {
             nextWallCountDownTimer -= Time.deltaTime;
             if (nextWallCountDownTimer < 0f)
-            {
-                UnitsSetting[] Walls = GameObject.FindObjectsOfType<UnitsSetting>();
-
-                if (Walls.Length == 0) return;
-
-                float nearestDistance = 9999999f;
-                foreach (UnitsSetting wall in Walls)
                 {
-                    if (wall.GetUnitsType() == WillAttackUnitType)
-                    {
-                        if (Vector3.Distance(transform.position, wall.gameObject.transform.position) < nearestDistance)
+                    UnitsSetting[] Units = GameObject.FindObjectsOfType<UnitsSetting>();
+                    if (Units.Length != 0){
+                        // Debug.Log("find units");
+                        float nearestDistance = 9999999f;
+                        foreach (UnitsSetting units in Units)
                         {
-                            nearestDistance = Vector3.Distance(transform.position, wall.gameObject.transform.position);
-                            nextTargetWallObject = wall.gameObject;
+                            if (units.GetUnitsType() == WillAttackUnitType)
+                            {
+                                if (Vector3.Distance(transform.position, units.gameObject.transform.position) < nearestDistance)
+                                {
+                                    nearestDistance = Vector3.Distance(transform.position, units.gameObject.transform.position);
+                                    nextTargetWallObject = units.gameObject;
+                                }
+                                // Debug.Log("next unit found!" + units.GetHP());
+                            }
                         }
-                        // Debug.Log("next wall found!" + wall.GetHP());
+                        
                     }
+                    if(!nextTargetWallObject){
+                        // Debug.Log("find building");
+                        BuildingSetting[] Walls = GameObject.FindObjectsOfType<BuildingSetting>();
+
+                        if (Walls.Length == 0) return;
+
+                        float nearestDistance = 9999999f;
+                        foreach (BuildingSetting wall in Walls)
+                        {
+                            if (wall.GetUnitsType() == WillAttackUnitType)
+                            {
+                                if (Vector3.Distance(transform.position, wall.gameObject.transform.position) < nearestDistance)
+                                {
+                                    nearestDistance = Vector3.Distance(transform.position, wall.gameObject.transform.position);
+                                    nextTargetWallObject = wall.gameObject;
+                                }
+                                // Debug.Log("next wall found!" + wall.GetHP());
+                            }
+                        }
+                    }
+                    nextWallCountDownTimer = UnityEngine.Random.Range(5f, 10f);
                 }
-                nextWallCountDownTimer = UnityEngine.Random.Range(5f, 10f);
+                
+                
             }
         }
-        
     }
-}
+
