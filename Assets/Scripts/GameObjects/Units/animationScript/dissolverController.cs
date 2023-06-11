@@ -23,7 +23,11 @@ public class dissolverController : MonoBehaviour
     private VisualEffect effect;
 
     [SerializeField]
+    private ParticleSystem deathEffect;
+
+    [SerializeField]
     private Animator animator;
+
 
     [SerializeField]
     private MeshRenderer MeshRenderer;
@@ -63,6 +67,7 @@ public class dissolverController : MonoBehaviour
 
 
         effect.Stop();
+        deathEffect.Stop();
 
     }
 
@@ -93,6 +98,7 @@ public class dissolverController : MonoBehaviour
         {
             material.DOFloat(1f, DissolveRef, 2f);
         }
+        deathEffect.Play();
 
         yield return new WaitForSeconds(2f);
 
@@ -101,6 +107,7 @@ public class dissolverController : MonoBehaviour
         {
             material.SetFloat(DissolveRef, 0f);
         }
+        deathEffect.Stop();
         effect.Stop();
         OnDeathAnimationEnded?.Invoke(this, EventArgs.Empty);
         yield return null;
