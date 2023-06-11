@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public interface IUnitBehavior
 {
@@ -10,4 +11,6 @@ public interface IUnitBehavior
     public void SeekEnemy();
 
     public void StartNav();
+
+    public event EventHandler OnDeathAnimation;
 }

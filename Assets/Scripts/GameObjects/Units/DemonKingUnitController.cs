@@ -6,8 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerUnitController : MonoBehaviour, IUnitBehavior
-{
+public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
 
     //public class
     public UnitsSetting unitsSetting;
@@ -36,6 +35,8 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
 
     //Animation part
     public event EventHandler OnDeathAnimation;
+    public event EventHandler DemonKingAttackAnimationEvent;
+    public event EventHandler DemonKingStopAttackAnimationEvent;
     [SerializeField]
     private dissolverController animationController;
 
@@ -51,7 +52,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         isDeath = false;
         nextTargetCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
         nextWallCountDownTimer = UnityEngine.Random.Range(5f, 10f);
-        nextAttackCountDownTimer = 0;
+        nextAttackCountDownTimer = 0f;
         animationController.OnDeathAnimationEnded += DeathAfterAnimation;
         targetFound = false;
         isAttacking = false;
@@ -95,7 +96,6 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         nextWallCountDownTimer = UnityEngine.Random.Range(5f, 10f);
         unitsSetting.ResetSetting();
         gameObject.SetActive(false);
-
     }
 
     //test the chasing area
@@ -109,34 +109,44 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
 
         if(!currentTargetObject) {
             isAttacking = false;
+            
+            // DemonKingStopAttackAnimationEvent?.Invoke(this, EventArgs.Empty);
             return;
         };
 
         nextAttackCountDownTimer -= Time.deltaTime;
         
         if(nextAttackCountDownTimer < 0){
-            StartAttack();
-            nextAttackCountDownTimer = unitsSetting.GetAttackSpeed();
+            if(Vector3.Distance(transform.position, currentTargetObject.transform.position) < unitsSetting.getAttackRange()){
+                NavMeshAgent.isStopped = true;
+                StartAttack();
+                DemonKingAttackAnimationEvent?.Invoke(this, EventArgs.Empty);
+                nextAttackCountDownTimer = unitsSetting.GetAttackSpeed();
+            }
+            else{
+                isAttacking = false;
+                NavMeshAgent.isStopped = false;
+                setNavMeshSpeed(unitsSetting.getWalkingSpeed());
+            }
         }
     }
     //deal one attack
     public void StartAttack(){
         //Debug.Log(unitsSetting.getAttackRange());
         //Debug.Log(Vector3.Distance(transform.position, currentTargetObject.transform.position));
-        if(Vector3.Distance(transform.position, currentTargetObject.transform.position) < unitsSetting.getAttackRange()){
-            setNavMeshSpeed(0f);
-            isAttacking = true;
-            IGameObjectStatus targetStatus = currentTargetObject.GetComponent<IGameObjectStatus>();
-            targetStatus.takenDamage(unitsSetting.getAttackDamage());
-            isAttacking = false;
-            //Debug.Log("target damaged: " + targetStatus.GetHP());
-            //unitsSetting.SetHP(0f); //killed when reached the wall
         
+        IGameObjectStatus targetStatus = currentTargetObject.GetComponent<IGameObjectStatus>();
+        // Debug.Log(targetStatus)
+        setNavMeshSpeed(0f);
+        isAttacking = true;
+        targetStatus.takenDamage(unitsSetting.getAttackDamage());
+
+        if(targetStatus.GetHP() < 0f){
+            currentTargetObject = null;
+            targetFound = false;
         }
-        else{
-            isAttacking = false;
-            setNavMeshSpeed(unitsSetting.getWalkingSpeed());
-        }
+
+        //Debug.Log("target damaged: " + targetStatus.GetHP());
     }
 
     //find the closest enemy
@@ -149,9 +159,10 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
                 targetFound = false;
             }
         }
-        if(nextTargetWallObject){
+        if(nextTargetWallObject ){
             if(nextTargetWallObject.activeInHierarchy == false){
                 nextTargetWallObject = null;
+                
             }
         }
         //TODO: need performance check right here
@@ -181,14 +192,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         }
 
     }
-
         public void setNavMeshSpeed(float speed){
-        // if(speed <= 0f){
-        //     NavMeshAgent.enabled = false;
-        // }
-        // else{
-        //     NavMeshAgent.enabled = true;
-        // }
         NavMeshAgent.speed = speed;
     }
 
