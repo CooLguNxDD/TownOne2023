@@ -3,7 +3,27 @@ guid: 8d68ee6292ce0334b80f2674b3aa6756
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PC_Soul_SwordHilt_Mat
+    second: {fileID: 2100000, guid: e1b94bc23af4a324a821c05257b3e942, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PC_Soul_Sword_Mat
+    second: {fileID: 2100000, guid: 0b19b58437da877439839d0e4c45a2c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: c308c06444651a54caaf9c17785842f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn2
+    second: {fileID: 2100000, guid: a92add51495d17a45a24c159ee162d67, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
