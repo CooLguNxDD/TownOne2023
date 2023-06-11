@@ -16,6 +16,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
     //Targets
     [SerializeField]
     private bool targetFound;
+    private bool IsMouseLocation;
     [SerializeField]
     private GameObject currentTargetObject;
     [SerializeField]
@@ -48,6 +49,8 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         animationController.OnDeathAnimationEnded += DeathAfterAnimation;
         targetFound = false;
         isAttacking = false;
+        NavMeshAgent.SetDestination(MouseController.Instance.mouseClickPosition);
+        setNavMeshSpeed(unitsSetting.getWalkingSpeed());
     }
     // Update is called once per frame
     void Update()
@@ -99,15 +102,16 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
 
         if(!currentTargetObject) {
             isAttacking = false;
-            return;};
-        // Debug.Log(unitsSetting.getAttackRange());
-        // Debug.Log(Vector3.Distance(transform.position, currentTargetObject.transform.position));
+            return;
+        };
+        //Debug.Log(unitsSetting.getAttackRange());
+        //Debug.Log(Vector3.Distance(transform.position, currentTargetObject.transform.position));
         if(Vector3.Distance(transform.position, currentTargetObject.transform.position) < unitsSetting.getAttackRange()){
             setNavMeshSpeed(0f);
             isAttacking = true;
             IGameObjectStatus targetStatus = currentTargetObject.GetComponent<IGameObjectStatus>();
             targetStatus.takenDamage(unitsSetting.getAttackDamage());
-            Debug.Log("target damaged: " + targetStatus.GetHP());
+            //Debug.Log("target damaged: " + targetStatus.GetHP());
 
             unitsSetting.SetHP(0f); //killed when reached the wall
         
@@ -138,7 +142,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
                             nearestDistance = Vector3.Distance(transform.position, collider.gameObject.transform.position);
                             currentTargetObject = collider.gameObject;
                         }
-                        // Debug.Log("target found!" + status.GetHP());
+                        //Debug.Log("target found!" + status.GetHP());
                         targetFound = true;
                     }
                 }
@@ -171,30 +175,39 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
             NavMeshAgent.SetDestination(currentTargetObject.transform.position);
             setNavMeshSpeed(unitsSetting.getWalkingSpeed());
         }
-        //set destination to a wall
-        else if(nextTargetWallObject){
-            NavMeshAgent.SetDestination(nextTargetWallObject.transform.position);
-            setNavMeshSpeed(unitsSetting.getWalkingSpeed());
-        }
-        //otherwise find the next wall if there is no target
-        else{
-            nextWallCountDownTimer -= Time.deltaTime;
-            if(nextWallCountDownTimer < 0f){
-                BuildingSetting[] Walls = GameObject.FindObjectsOfType<BuildingSetting>();
+        if (NavMeshAgent.remainingDistance <= 5)
+        {
+            //set destination to a wall
+            if (nextTargetWallObject)
+            {
+                NavMeshAgent.SetDestination(nextTargetWallObject.transform.position);
+                setNavMeshSpeed(unitsSetting.getWalkingSpeed());
+            }
+            //otherwise find the next wall if there is no target
+            else
+            {
+                nextWallCountDownTimer -= Time.deltaTime;
+                if (nextWallCountDownTimer < 0f)
+                {
+                    BuildingSetting[] Walls = GameObject.FindObjectsOfType<BuildingSetting>();
 
-                if(Walls.Length == 0) return;
+                    if (Walls.Length == 0) return;
 
-                float nearestDistance = 9999999f;
-                foreach(BuildingSetting wall in Walls){
-                    if(wall.GetUnitsType() == UnitsType.UnitType.ENEMY_UNIT){
-                        if(Vector3.Distance(transform.position, wall.gameObject.transform.position) < nearestDistance){
-                            nearestDistance = Vector3.Distance(transform.position, wall.gameObject.transform.position);
-                            nextTargetWallObject = wall.gameObject;
+                    float nearestDistance = 9999999f;
+                    foreach (BuildingSetting wall in Walls)
+                    {
+                        if (wall.GetUnitsType() == UnitsType.UnitType.ENEMY_UNIT)
+                        {
+                            if (Vector3.Distance(transform.position, wall.gameObject.transform.position) < nearestDistance)
+                            {
+                                nearestDistance = Vector3.Distance(transform.position, wall.gameObject.transform.position);
+                                nextTargetWallObject = wall.gameObject;
+                            }
+                            // Debug.Log("next wall found!" + wall.GetHP());
                         }
-                        // Debug.Log("next wall found!" + wall.GetHP());
                     }
+                    nextWallCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
                 }
-                nextWallCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
             }
         }
     }
