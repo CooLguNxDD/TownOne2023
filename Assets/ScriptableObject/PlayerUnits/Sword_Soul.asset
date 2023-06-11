@@ -18,7 +18,7 @@ MonoBehaviour:
   AttackType: 0
   UnitsName: sword_soul
   level: 0
-  HP: 200
+  HP: 150
   Damage: 75
   Defence: 0
   WalkingSpeed: 10

@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 3704e2ed3c7e13e4dae08b931282c3af
+guid: 6414aa47870ff76479b57507c21b574f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: EC_Demon_Mat
-    second: {fileID: 2100000, guid: 85f5e3e588a28114b833716334f6513b, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

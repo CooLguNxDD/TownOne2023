@@ -8,22 +8,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PC_Soul_SwordHilt_Mat
-    second: {fileID: 2100000, guid: e1b94bc23af4a324a821c05257b3e942, type: 2}
+    second: {fileID: 2100000, guid: a425c7b5c7c8e1444bd5168586c5678f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PC_Soul_Sword_Mat
-    second: {fileID: 2100000, guid: 0b19b58437da877439839d0e4c45a2c9, type: 2}
+    second: {fileID: 2100000, guid: e0c2cce922caee64c84e2136655b3b1e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: blinn1
-    second: {fileID: 2100000, guid: 36034d71bd4c9be44874146e784e2e86, type: 2}
+    second: {fileID: 2100000, guid: 85a901c9acb37d44c8ba13599c44b69b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: blinn2
-    second: {fileID: 2100000, guid: a92add51495d17a45a24c159ee162d67, type: 2}
+    second: {fileID: 2100000, guid: 4b99333f9a712d24aba41cc6430ef6a3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

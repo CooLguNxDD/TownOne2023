@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3899389395469396941}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!2083052967 &1310425256
 VisualEffect:
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8512450421390722184}
   - component: {fileID: 3063559195472627877}
   - component: {fileID: 4478118754152239119}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: HPRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 7.2}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3063559195472627877
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 5703171993691008856}
   - component: {fileID: 5285747955065013864}
   - component: {fileID: 8306635450852375473}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: HPBarUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,11 +220,11 @@ RectTransform:
   - {fileID: 8512450421390722184}
   - {fileID: 2429748356731100497}
   m_Father: {fileID: 3899389395469396941}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -18.7}
+  m_AnchoredPosition: {x: 0, y: 18.9}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5703171993691008856
@@ -323,9 +323,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5414820720593057542}
   - {fileID: 7295353842527012534}
   - {fileID: 1310425258}
-  - {fileID: 5414820720593057542}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -356,7 +356,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649072871637542407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -398,7 +398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitsSetting: {fileID: 7564296040280172682}
-  NavMeshAgent: {fileID: 6639433694459498718}
   WillAttackUnitType: 0
   targetFound: 0
   currentTargetObject: {fileID: 0}
@@ -467,7 +466,7 @@ GameObject:
   - component: {fileID: 1563024041844676367}
   - component: {fileID: 6146877775184733801}
   - component: {fileID: 5283583669686131984}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: HPGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 7.2}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1563024041844676367
@@ -529,7 +528,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!114 &5283583669686131984
@@ -564,7 +563,7 @@ PrefabInstance:
     - target: {fileID: 1786408754842920282, guid: 1028e5a1e7725564da34ddf2277c7631,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1786408754842920282, guid: 1028e5a1e7725564da34ddf2277c7631,
         type: 3}

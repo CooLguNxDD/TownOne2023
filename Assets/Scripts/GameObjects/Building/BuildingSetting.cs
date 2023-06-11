@@ -41,7 +41,7 @@ public class BuildingSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
     void Awake()
     {
         ResetSetting();
-        Debug.Log("Spawned Building: " + BuildingName);
+        // Debug.Log("Spawned Building: " + BuildingName);
     }
 
     public void ResetSetting() {
