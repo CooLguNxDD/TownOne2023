@@ -9,6 +9,8 @@ public class SpawningBaseController : MonoBehaviour
     private ObjectPool objectPool;
     [SerializeField]
     private string spawnObjectTag;
+    [SerializeField]
+    private string spawnObjectTag2;
 
     public bool isClickControl = false;
 
@@ -24,7 +26,8 @@ public class SpawningBaseController : MonoBehaviour
             objectPool = GameObject.Find("ObjectPool").GetComponent<ObjectPool>();
         }
         if(isClickControl){
-            MouseController.Instance.MouseOnClickEvent += SpawnOnClick;
+            MouseController.Instance.MouseOnLeftClickEvent += SpawnOnLeftClick;
+            MouseController.Instance.MouseOnRightClickEvent += SpawnOnRightClick;
         }
 
     }
@@ -45,10 +48,17 @@ public class SpawningBaseController : MonoBehaviour
         GameManager.Instance.SpawnCount += 1;
     }
 
-    private void SpawnOnClick(object sender, System.EventArgs args)
+    private void SpawnOnLeftClick(object sender, System.EventArgs args)
     {
         Vector3 pos = new Vector3(transform.position.x + Random.Range(-2f, 2f), transform.position.y + Random.Range(-2f, 2f), transform.position.z);
         objectPool.SpawnFromPool(spawnObjectTag, pos, Quaternion.identity);
+
+        GameManager.Instance.SpawnCount += 1;
+    }
+    private void SpawnOnRightClick(object sender, System.EventArgs args)
+    {
+        Vector3 pos = new Vector3(transform.position.x + Random.Range(-2f, 2f), transform.position.y + Random.Range(-2f, 2f), transform.position.z);
+        objectPool.SpawnFromPool(spawnObjectTag2, pos, Quaternion.identity);
 
         GameManager.Instance.SpawnCount += 1;
     }

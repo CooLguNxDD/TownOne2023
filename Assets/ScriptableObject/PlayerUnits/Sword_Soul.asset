@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef1b487cd776fca46a36c3ef2b147b7e, type: 3}
-  m_Name: EnemyUnit1
+  m_Name: Sword_Soul
   m_EditorClassIdentifier: 
-  UnitsUID: 101
-  UnitsTag: DEMON
-  UnitsType: 1
+  UnitsUID: 100
+  UnitsTag: SWORD_SOUL
+  UnitsType: 0
   AttackType: 0
-  UnitsName: Demon
+  UnitsName: sword_soul
   level: 0
-  HP: 1000
-  Damage: 0
+  HP: 200
+  Damage: 75
   Defence: 0
   WalkingSpeed: 10
   ChaseRange: 32
   AttackSpeed: 2
-  attackRange: 8
+  attackRange: 5

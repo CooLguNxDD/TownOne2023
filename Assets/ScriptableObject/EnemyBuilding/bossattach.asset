@@ -9,19 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef1b487cd776fca46a36c3ef2b147b7e, type: 3}
-  m_Name: EnemyUnit1
+  m_Script: {fileID: 11500000, guid: 572bfb81fc7f85446b9db4e00430a2bb, type: 3}
+  m_Name: bossattach
   m_EditorClassIdentifier: 
-  UnitsUID: 101
-  UnitsTag: DEMON
-  UnitsType: 1
-  AttackType: 0
-  UnitsName: Demon
+  BuildingUID: 0
+  BuildingTag: 
+  UnitsType: 2
+  BuildingName: 
+  HP: 0
   level: 0
-  HP: 1000
   Damage: 0
   Defence: 0
-  WalkingSpeed: 10
-  ChaseRange: 32
-  AttackSpeed: 2
-  attackRange: 8
+  WalkingSpeed: 0
+  ChaseRange: 0
+  AttackSpeed: 0
+  SpawnObject: {fileID: 0}
+  SpawnRate: 0
+  NumberOfSpawn: 0

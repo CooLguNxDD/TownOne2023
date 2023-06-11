@@ -114,6 +114,8 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
             return;
         };
 
+        transform.LookAt(currentTargetObject.transform.position);
+
         nextAttackCountDownTimer -= Time.deltaTime;
         
         if(nextAttackCountDownTimer < 0){

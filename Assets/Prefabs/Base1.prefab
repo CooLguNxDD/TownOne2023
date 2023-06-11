@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool: {fileID: 0}
-  spawnObjectTag: PlayerUnit1
+  spawnObjectTag: SWORD_SOUL
+  spawnObjectTag2: SHIELD_SOUL
   isClickControl: 1
   spawnerCounter: 0
   buildingSetting: {fileID: 3115835195520562161}

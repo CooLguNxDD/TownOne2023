@@ -10,6 +10,7 @@ public static class UnitsType
     {
         PLAYER_UNIT,
         ENEMY_UNIT,
+        BOSS_UNIT,
         NONE
     }
     public enum AttackType

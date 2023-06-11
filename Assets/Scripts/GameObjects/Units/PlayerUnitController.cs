@@ -213,12 +213,12 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
             nextWallCountDownTimer -= Time.deltaTime;
             if (nextWallCountDownTimer < 0f)
             {
-                BuildingSetting[] Walls = GameObject.FindObjectsOfType<BuildingSetting>();
+                UnitsSetting[] Walls = GameObject.FindObjectsOfType<UnitsSetting>();
 
                 if (Walls.Length == 0) return;
 
                 float nearestDistance = 9999999f;
-                foreach (BuildingSetting wall in Walls)
+                foreach (UnitsSetting wall in Walls)
                 {
                     if (wall.GetUnitsType() == WillAttackUnitType)
                     {

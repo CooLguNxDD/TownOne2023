@@ -9,19 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef1b487cd776fca46a36c3ef2b147b7e, type: 3}
-  m_Name: PlayerUnit1
+  m_Script: {fileID: 11500000, guid: 572bfb81fc7f85446b9db4e00430a2bb, type: 3}
+  m_Name: playerGather
   m_EditorClassIdentifier: 
-  UnitsUID: 100
-  UnitsTag: PLAYERUNIT1
-  UnitsType: 0
-  AttackType: 0
-  UnitsName: Ghost
+  BuildingUID: 3
+  BuildingTag: testWall1
+  UnitsType: 1
+  BuildingName: THE_TEST_WALL
+  HP: 1
   level: 0
-  HP: 100
-  Damage: 75
+  Damage: 0
   Defence: 0
-  WalkingSpeed: 10
-  ChaseRange: 32
-  AttackSpeed: 2
-  attackRange: 5
+  WalkingSpeed: 0
+  ChaseRange: 0
+  AttackSpeed: 0
+  SpawnObject: {fileID: 0}
+  SpawnRate: 0
+  NumberOfSpawn: 0
