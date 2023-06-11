@@ -32,7 +32,7 @@ public class HpBarController : MonoBehaviour
         barImage.fillAmount = 1f;
         LookAtCounter = 0f;
 
-        Show();
+        Hide();
     }
     private void Update(){
         LookAtCounter -= Time.deltaTime;
@@ -49,7 +49,7 @@ public class HpBarController : MonoBehaviour
         // Debug.Log("HP bar process: " + e.HpNormalized);
         barImage.fillAmount = e.HpNormalized;
 
-        if (e.HpNormalized >= 0f && e.HpNormalized <= 1f) {
+        if (e.HpNormalized >= 0f && e.HpNormalized < 0.99f) {
             Show();
             
         } else {
@@ -60,9 +60,12 @@ public class HpBarController : MonoBehaviour
 
     private void Show() {
         gameObject.SetActive(true);
+        barImageBG.gameObject.SetActive(true);
+
     }
 
     private void Hide() {
         gameObject.SetActive(false);
+        barImageBG.gameObject.SetActive(false);
     }
 }
