@@ -10,7 +10,7 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
 
     //public class
     public UnitsSetting unitsSetting;
-    public NavMeshAgent NavMeshAgent;
+    //public NavMeshAgent NavMeshAgent;
 
     public UnitsType.UnitType WillAttackUnitType;
 
@@ -46,6 +46,9 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
 
     [SerializeField]
     private bool isAttacking;
+
+    public float AreaEffect = 10f;
+    public float reachingDistance = 5f;
     
     void Start()
     {
@@ -56,7 +59,7 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
         animationController.OnDeathAnimationEnded += DeathAfterAnimation;
         targetFound = false;
         isAttacking = false;
-        NavMeshAgent.SetDestination(MouseController.Instance.mouseClickPosition);
+        //NavMeshAgent.SetDestination(MouseController.Instance.mouseClickPosition);
         setNavMeshSpeed(unitsSetting.getWalkingSpeed());
     }
     // Update is called once per frame
@@ -103,6 +106,12 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, unitsSetting.GetChaseRange());
+
+        Gizmos.color=Color.yellow;
+        
+        Gizmos.DrawWireSphere(transform.position-transform.forward*reachingDistance, AreaEffect);
+
+        // Physics.SphereCast(transform.position,radius,-transform.up,out hit,maxDistance,~layerMask)
     }
     //start attack checking with count down
     public void Attack(){
@@ -113,21 +122,20 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
             // DemonKingStopAttackAnimationEvent?.Invoke(this, EventArgs.Empty);
             return;
         };
-
-        transform.LookAt(currentTargetObject.transform.position);
+        transform.LookAt(new Vector3(currentTargetObject.transform.position.x, transform.position.y, transform.position.z));
 
         nextAttackCountDownTimer -= Time.deltaTime;
         
         if(nextAttackCountDownTimer < 0){
             if(Vector3.Distance(transform.position, currentTargetObject.transform.position) < unitsSetting.getAttackRange()){
-                NavMeshAgent.isStopped = true;
+                //NavMeshAgent.isStopped = true;
                 StartAttack();
                 DemonKingAttackAnimationEvent?.Invoke(this, EventArgs.Empty);
                 nextAttackCountDownTimer = unitsSetting.GetAttackSpeed();
             }
             else{
                 isAttacking = false;
-                NavMeshAgent.isStopped = false;
+                //NavMeshAgent.isStopped = false;
                 setNavMeshSpeed(unitsSetting.getWalkingSpeed());
             }
         }
@@ -138,11 +146,21 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
         //Debug.Log(Vector3.Distance(transform.position, currentTargetObject.transform.position));
         
         IGameObjectStatus targetStatus = currentTargetObject.GetComponent<IGameObjectStatus>();
+
+
         // Debug.Log(targetStatus)
         setNavMeshSpeed(0f);
         isAttacking = true;
-        targetStatus.takenDamage(unitsSetting.getAttackDamage());
 
+        Collider[] colliders = Physics.OverlapSphere(transform.position-transform.forward*reachingDistance, AreaEffect);
+        foreach (Collider collider in colliders){
+            if(collider.TryGetComponent(out IGameObjectStatus status)){
+                if(status.GetUnitsType() == WillAttackUnitType){
+                    status.takenDamage(unitsSetting.getAttackDamage());
+
+                }
+            }
+        }
         if(targetStatus.GetHP() < 0f){
             currentTargetObject = null;
             targetFound = false;
@@ -161,7 +179,7 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
                 targetFound = false;
             }
         }
-        if(nextTargetWallObject ){
+        if(nextTargetWallObject){
             if(nextTargetWallObject.activeInHierarchy == false){
                 nextTargetWallObject = null;
                 
@@ -195,7 +213,7 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
 
     }
         public void setNavMeshSpeed(float speed){
-        NavMeshAgent.speed = speed;
+        //NavMeshAgent.speed = speed;
     }
 
     public void StartNav(){
@@ -203,14 +221,14 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
 
         //set destination to a enemy
         if(targetFound){
-            NavMeshAgent.SetDestination(currentTargetObject.transform.position);
+            //NavMeshAgent.SetDestination(currentTargetObject.transform.position);
             setNavMeshSpeed(unitsSetting.getWalkingSpeed());
         }
 
         //set destination to a wall
         if (nextTargetWallObject && !currentTargetObject)
         {
-            NavMeshAgent.SetDestination(nextTargetWallObject.transform.position);
+            //NavMeshAgent.SetDestination(nextTargetWallObject.transform.position);
             setNavMeshSpeed(unitsSetting.getWalkingSpeed());
         }
         //otherwise find the next wall if there is no target
