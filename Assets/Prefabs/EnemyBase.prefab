@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3115835195520562161}
   - component: {fileID: 3115835195520562160}
   m_Layer: 0
-  m_Name: Base1
+  m_Name: EnemyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ec28fe6c988accb4e96e655e3e8f9b65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d59775147f553143964462ce8184973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingScriptableObject: {fileID: 11400000, guid: 1a49aee79f10c5f409cdc5d472b21d40,
+  buildingScriptableObject: {fileID: 11400000, guid: 166d1e2a881c99e4cb4a066d1de8ae2d,
     type: 2}
   UnitsType: 0
 --- !u!114 &3115835195520562160
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool: {fileID: 0}
-  spawnObjectTag: PlayerUnit1
-  isClickControl: 1
+  spawnObjectTag: EnemyUnit1
+  isClickControl: 0
   spawnerCounter: 0
   buildingSetting: {fileID: 3115835195520562161}

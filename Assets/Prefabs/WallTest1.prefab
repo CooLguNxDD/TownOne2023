@@ -17,7 +17,7 @@ GameObject:
   m_Name: HPBarUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &5394381909572597193
@@ -133,11 +133,12 @@ GameObject:
   - component: {fileID: 8092411070524434474}
   - component: {fileID: 4785623988834446380}
   - component: {fileID: 4455479083882095487}
+  - component: {fileID: 7097790227903937240}
   m_Layer: 8
   m_Name: WallTest1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4210715800088687390
@@ -217,8 +218,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9500606, y: 1, z: 1.0204163}
-  m_Center: {x: -0.024970097, y: 0, z: -0.0102133015}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4455479083882095487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +235,22 @@ MonoBehaviour:
   buildingScriptableObject: {fileID: 11400000, guid: ae86d10cda2ab1643b88f7a315114dcb,
     type: 2}
   UnitsType: 0
+--- !u!208 &7097790227903937240
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955048782217357680}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4639031658813828210
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +266,7 @@ GameObject:
   m_Name: HPGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &2124488103927003142
@@ -325,7 +342,7 @@ GameObject:
   m_Name: HPRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &5268462514998192262

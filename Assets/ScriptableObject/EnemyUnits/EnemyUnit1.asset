@@ -9,20 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572bfb81fc7f85446b9db4e00430a2bb, type: 3}
-  m_Name: TestWall
+  m_Script: {fileID: 11500000, guid: ef1b487cd776fca46a36c3ef2b147b7e, type: 3}
+  m_Name: EnemyUnit1
   m_EditorClassIdentifier: 
-  BuildingUID: 3
-  BuildingTag: testWall1
+  UnitsUID: 101
+  UnitsTag: ENEMYUNIT1
   UnitsType: 1
-  BuildingName: THE_TEST_WALL
-  HP: 10000
+  AttackType: 0
+  UnitsName: Demon
   level: 0
-  Damage: 0
+  HP: 1000
+  Damage: 100
   Defence: 0
-  WalkingSpeed: 0
-  ChaseRange: 0
-  AttackSpeed: 0
-  SpawnObject: {fileID: 0}
-  SpawnRate: 0
-  NumberOfSpawn: 0
+  WalkingSpeed: 10
+  ChaseRange: 32
+  AttackSpeed: 2
+  attackRange: 8

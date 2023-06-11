@@ -18,7 +18,7 @@ MonoBehaviour:
   BuildingName: TestPlayerBuilding1
   HP: 100
   level: 0
-  Damage: 0
+  Damage: 20
   Defence: 0
   WalkingSpeed: 0
   ChaseRange: 0

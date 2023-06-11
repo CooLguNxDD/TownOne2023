@@ -50,6 +50,10 @@ public class UnitsSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
         attackRange = UnitsScriptableObject.attackRange;
     }
 
+    public float GetAttackSpeed(){
+        return AttackSpeed;
+    }
+
     public void ResetAll(){
         ResetSetting();
     }

@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 2808851724211737920}
   - component: {fileID: 2808851724211737917}
   m_Layer: 0
-  m_Name: PlayerUnit1
+  m_Name: EnemyUnit1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 6775160313621422478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1121524672118558564}
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bad7cbe3a831b448231475e9b80bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitsScriptableObject: {fileID: 11400000, guid: 5e11eb2dc7cd86a44a16f3a2c86b9b0a,
+  UnitsScriptableObject: {fileID: 11400000, guid: a49a0ed2722d15d4ab55c841a84ebaf4,
     type: 2}
 --- !u!114 &2808851724211737919
 MonoBehaviour:
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitsSetting: {fileID: 2808851724211737918}
   NavMeshAgent: {fileID: 2808851724211737920}
-  WillAttackUnitType: 1
+  WillAttackUnitType: 0
   targetFound: 0
   currentTargetObject: {fileID: 0}
   nextTargetWallObject: {fileID: 0}
@@ -598,7 +598,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8d68ee6292ce0334b80f2674b3aa6756,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.167
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d68ee6292ce0334b80f2674b3aa6756,
         type: 3}
