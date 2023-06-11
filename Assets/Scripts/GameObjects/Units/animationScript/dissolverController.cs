@@ -32,19 +32,29 @@ public class dissolverController : MonoBehaviour
     private SkinnedMeshRenderer sMeshRenderer;
     private List<Material> materials;
 
+    public enum selectController {DemonKing, Unit, Cage};
+
+    public selectController newController;
+
     private void Awake()
     {
         materials = new List<Material>();
     }
     void Start()
     {
-        if(DController){
+        if(newController == selectController.DemonKing){
             DController.OnDeathAnimation += playAnimation;
             foreach (Material material in sMeshRenderer.materials){
                 materials.Add(material);
             }
         }
-        else if(Controller){
+        else if(newController == selectController.Cage){
+            DController.OnDeathAnimation += playAnimation;
+            foreach (Material material in MeshRenderer.materials){
+                materials.Add(material);
+            }
+        }
+        else if(newController == selectController.Unit){
             Controller.OnDeathAnimation += playAnimation;
             foreach (Material material in MeshRenderer.materials){
                 materials.Add(material);
