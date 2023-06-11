@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 2808851724211737920}
   - component: {fileID: 2808851724211737917}
   m_Layer: 0
-  m_Name: PlayerUnit1
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitsSetting: {fileID: 2808851724211737918}
   NavMeshAgent: {fileID: 2808851724211737920}
-  WillAttackUnitType: 1
+  WillAttackUnitType: 2
   targetFound: 0
   currentTargetObject: {fileID: 0}
   nextTargetWallObject: {fileID: 0}
@@ -565,9 +565,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 2808851724211737919}
+  DController: {fileID: 0}
   effect: {fileID: 1581250466086564883}
   animator: {fileID: 0}
   MeshRenderer: {fileID: 2295525621132522507}
+  sMeshRenderer: {fileID: 0}
 --- !u!1001 &584005335724583055
 PrefabInstance:
   m_ObjectHideFlags: 0

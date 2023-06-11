@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3115835195520562174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.2, y: 0.28, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingScriptableObject: {fileID: 11400000, guid: 166d1e2a881c99e4cb4a066d1de8ae2d,
     type: 2}
-  UnitsType: 0
+  UnitsType: 2
 --- !u!114 &3115835195520562160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool: {fileID: 0}
-  spawnObjectTag: EnemyUnit1
+  spawnObjectTag: DEMON
+  spawnObjectTag2: 
   isClickControl: 0
   spawnerCounter: 0
   buildingSetting: {fileID: 3115835195520562161}
