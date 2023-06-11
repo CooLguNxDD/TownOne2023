@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 2808851724211737920}
   - component: {fileID: 2808851724211737917}
   m_Layer: 0
-  m_Name: PlayerUnit1
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 6775160313621422478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1121524672118558564}
@@ -520,11 +520,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitsSetting: {fileID: 2808851724211737918}
   NavMeshAgent: {fileID: 2808851724211737920}
+  WillAttackUnitType: 2
   targetFound: 0
   currentTargetObject: {fileID: 0}
   nextTargetWallObject: {fileID: 0}
   nextTargetCountDownTimer: 0
   nextWallCountDownTimer: 0
+  nextAttackCountDownTimer: 0
   animationController: {fileID: 2808851724211737917}
   isDeath: 0
   isAttacking: 0
@@ -539,7 +541,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 30
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -563,9 +565,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 2808851724211737919}
+  DController: {fileID: 0}
   effect: {fileID: 1581250466086564883}
   animator: {fileID: 0}
   MeshRenderer: {fileID: 2295525621132522507}
+  sMeshRenderer: {fileID: 0}
 --- !u!1001 &584005335724583055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -596,7 +600,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8d68ee6292ce0334b80f2674b3aa6756,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.167
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d68ee6292ce0334b80f2674b3aa6756,
         type: 3}

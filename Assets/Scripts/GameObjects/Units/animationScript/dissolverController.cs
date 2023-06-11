@@ -12,6 +12,8 @@ public class dissolverController : MonoBehaviour
 
     [SerializeField]
     private PlayerUnitController Controller;
+    [SerializeField]
+    private DemonKingUnitController DController;
 
     [SerializeField]
     public event EventHandler OnDeathAnimationEnded;
@@ -25,6 +27,9 @@ public class dissolverController : MonoBehaviour
 
     [SerializeField]
     private MeshRenderer MeshRenderer;
+    
+     [SerializeField]
+    private SkinnedMeshRenderer sMeshRenderer;
     private List<Material> materials;
 
     private void Awake()
@@ -33,11 +38,20 @@ public class dissolverController : MonoBehaviour
     }
     void Start()
     {
-        Controller.OnDeathAnimation += playAnimation;
-
-        foreach (Material material in MeshRenderer.materials){
-            materials.Add(material);
+        if(DController){
+            DController.OnDeathAnimation += playAnimation;
+            foreach (Material material in sMeshRenderer.materials){
+                materials.Add(material);
+            }
         }
+        else if(Controller){
+            Controller.OnDeathAnimation += playAnimation;
+            foreach (Material material in MeshRenderer.materials){
+                materials.Add(material);
+            }
+        }
+
+
         effect.Stop();
 
     }

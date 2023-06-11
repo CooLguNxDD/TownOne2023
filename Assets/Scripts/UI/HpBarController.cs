@@ -46,7 +46,7 @@ public class HpBarController : MonoBehaviour
     }
 
     private void HasProgress_OnProgressChanged(object sender, IHasHpBar.OnHpChangedEventArgs e) {
-        Debug.Log("HP bar process: " + e.HpNormalized);
+        // Debug.Log("HP bar process: " + e.HpNormalized);
         barImage.fillAmount = e.HpNormalized;
 
         if (e.HpNormalized >= 0f && e.HpNormalized <= 1f) {
