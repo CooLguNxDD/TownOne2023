@@ -9,7 +9,8 @@ public static class UnitsType
     public enum UnitType
     {
         PLAYER_UNIT,
-        ENEMY_UNIT
+        ENEMY_UNIT,
+        NONE
     }
     public enum AttackType
     {

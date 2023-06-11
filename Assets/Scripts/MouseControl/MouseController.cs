@@ -11,6 +11,9 @@ public class MouseController : MonoBehaviour
     public event EventHandler MouseOnClickEvent;
 
     public Vector3 mouseClickPosition;
+
+    public float ClickingCoolDown;
+    public float ClickingCoolDownSetting;
     private void Awake()
     {
         if (Instance == null)
@@ -18,11 +21,13 @@ public class MouseController : MonoBehaviour
             Debug.Log("only one MouseController instance available");
         }
         Instance = this;
+        ClickingCoolDown = ClickingCoolDownSetting;
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        ClickingCoolDown -= Time.deltaTime;
+        if (Input.GetMouseButtonDown(0) && ClickingCoolDown < 0f)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -31,6 +36,7 @@ public class MouseController : MonoBehaviour
             {
                 MouseOnClickEvent?.Invoke(this, EventArgs.Empty);
                 mouseClickPosition = hit.point;
+                ClickingCoolDown = ClickingCoolDownSetting;
             }
         }
     }
