@@ -19,9 +19,9 @@ MonoBehaviour:
   UnitsName: PlayerUnit1
   level: 0
   HP: 100
-  Damage: 50
+  Damage: 100
   Defence: 0
   WalkingSpeed: 10
-  ChaseRange: 32
+  ChaseRange: 10
   AttackSpeed: 0
   attackRange: 6

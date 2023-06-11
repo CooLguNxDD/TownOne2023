@@ -16,7 +16,7 @@ MonoBehaviour:
   BuildingTag: testWall1
   UnitsType: 1
   BuildingName: THE_TEST_WALL
-  HP: 80000
+  HP: 1000
   level: 0
   Damage: 0
   Defence: 0
