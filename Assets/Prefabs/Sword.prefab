@@ -570,6 +570,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   MeshRenderer: {fileID: 2295525621132522507}
   sMeshRenderer: {fileID: 0}
+  newController: 1
 --- !u!1001 &584005335724583055
 PrefabInstance:
   m_ObjectHideFlags: 0
