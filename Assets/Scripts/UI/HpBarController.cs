@@ -20,7 +20,7 @@ public class HpBarController : MonoBehaviour
 
 
     private void Start() {
-        mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        mainCamera = Camera.main;
         parentCanvas.worldCamera = mainCamera;
         hasHp = hasHPsGameObject.GetComponent<IHasHpBar>();
         if (hasHp == null) {
