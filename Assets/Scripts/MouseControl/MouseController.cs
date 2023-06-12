@@ -37,7 +37,7 @@ public class MouseController : MonoBehaviour
             {
                 MouseOnLeftClickEvent?.Invoke(this, EventArgs.Empty);
                 mouseClickPosition = hit.point;
-                ClickingCoolDown = ClickingCoolDownSetting;
+                ClickingCoolDown = ClickingCoolDownSetting - GameManager.Instance.FB_Buff;
             }
         }
         else if (Input.GetMouseButtonDown(1) && ClickingCoolDown < 0f)
@@ -49,7 +49,7 @@ public class MouseController : MonoBehaviour
             {
                 MouseOnRightClickEvent?.Invoke(this, EventArgs.Empty);
                 mouseClickPosition = hit.point;
-                ClickingCoolDown = ClickingCoolDownSetting;
+                ClickingCoolDown = ClickingCoolDownSetting - GameManager.Instance.FB_Buff;
             }
         }
         
