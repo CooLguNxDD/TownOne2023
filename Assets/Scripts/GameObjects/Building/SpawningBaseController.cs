@@ -45,7 +45,7 @@ public class SpawningBaseController : MonoBehaviour
         Vector3 pos = new Vector3(transform.position.x + Random.Range(-2f, 2f), transform.position.y + Random.Range(-2f, 2f), transform.position.z);
         objectPool.SpawnFromPool(spawnObjectTag, pos, Quaternion.identity);
 
-        GameManager.Instance.SpawnCount += 1;
+        GameManager.Instance.MinionCount += 1;
     }
 
     private void SpawnOnLeftClick(object sender, System.EventArgs args)
@@ -53,14 +53,14 @@ public class SpawningBaseController : MonoBehaviour
         Vector3 pos = new Vector3(transform.position.x + Random.Range(-2f, 2f), transform.position.y + Random.Range(-2f, 2f), transform.position.z);
         objectPool.SpawnFromPool(spawnObjectTag, pos, Quaternion.identity);
 
-        GameManager.Instance.SpawnCount += 1;
+        GameManager.Instance.SwordCount += 1;
     }
     private void SpawnOnRightClick(object sender, System.EventArgs args)
     {
         Vector3 pos = new Vector3(transform.position.x + Random.Range(-2f, 2f), transform.position.y + Random.Range(-2f, 2f), transform.position.z);
         objectPool.SpawnFromPool(spawnObjectTag2, pos, Quaternion.identity);
 
-        GameManager.Instance.SpawnCount += 1;
+        GameManager.Instance.ShieldCount += 1;
     }
 
 

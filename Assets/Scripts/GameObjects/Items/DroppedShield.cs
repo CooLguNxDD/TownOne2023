@@ -18,7 +18,6 @@ public class DroppedShield : MonoBehaviour
     public void DropShield(object sender, EventArgs args){
 
         ObjectPool.Instance.SpawnFromPool("dropped", transform.position, Quaternion.identity);
-        GameManager.Instance.SpawnCount += 1;
     }
 
 }

@@ -12,6 +12,7 @@ public class MainMenuController : MonoBehaviour
     public Transform mainMenuBtn;
 
     public string GameSceneTag;
+    public string TutorialSceneTag;
 
     int in_game;
 
@@ -19,8 +20,13 @@ public class MainMenuController : MonoBehaviour
         //PanelManager.instance.loadCustomDifficulty();
 
         SceneManager.LoadScene(GameSceneTag);
-        Debug.Log("doing shit");
+        //Debug.Log("doing shit");
         //PanelManager.instance.loadPanel("\nPlease choose your difficulty:", delegate {startNewGame((int)DIFFICULTY.EASY);}, delegate {startNewGame((int)DIFFICULTY.NORMAL);}, "Easy", "Normal", addButtons);
+    }
+
+    public void startTutorialScene()
+    {
+        SceneManager.LoadScene(TutorialSceneTag);
     }
     public void Start(){
 
