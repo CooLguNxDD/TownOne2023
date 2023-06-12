@@ -1,9 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class BuildingSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
+public class BuildingSetting : MonoBehaviour, IGameObjectStatus
 {
 
     public BuildingScriptableObject buildingScriptableObject;
@@ -12,9 +12,7 @@ public class BuildingSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
     public UnitsType.UnitType UnitsType;
     private string BuildingName;
 
-
     //Building status
-
 
     private float HP;
     private int level;
@@ -34,14 +32,14 @@ public class BuildingSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
     // how many mobs gonna spawn
     private int NumberOfSpawn;
 
-    public event EventHandler<IHasHpBar.OnHpChangedEventArgs> OnHpChanged;
+    public UnityEvent OnDestroy;
 
 
     // Start is called before the first frame update
     void Awake()
     {
         ResetSetting();
-        // Debug.Log("Spawned Building: " + BuildingName);
+        Debug.Log("Spawned Building: " + BuildingName);
     }
 
     public void ResetSetting() {
@@ -55,7 +53,7 @@ public class BuildingSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
         WalkingSpeed = buildingScriptableObject.WalkingSpeed;
         ChaseRange = buildingScriptableObject.ChaseRange;
         AttackSpeed = buildingScriptableObject.AttackSpeed;
-        SpawnRate = buildingScriptableObject.SpawnRate;
+        SpawnRate = buildingScriptableObject.SpawnRate; // I think spawn rate should
         NumberOfSpawn = buildingScriptableObject.NumberOfSpawn;
         SpawnObject = buildingScriptableObject.SpawnObject;
     }
@@ -64,6 +62,7 @@ public class BuildingSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
     void Update()
     {
         if(HP <= 0){
+            OnDestroy.Invoke();
             gameObject.SetActive(false);
         }
     }
@@ -83,11 +82,6 @@ public class BuildingSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
     public void SetHP(float hp)
     {
         this.HP = hp;
-        OnHpChanged?.Invoke(this, new IHasHpBar.OnHpChangedEventArgs
-        {
-            HpNormalized = HP / buildingScriptableObject.HP
-            
-        });
     }
 
     public UnitsType.UnitType GetUnitsType()
@@ -103,9 +97,5 @@ public class BuildingSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
     public void takenDamage(float hp)
     {
         this.HP -= hp;
-        OnHpChanged?.Invoke(this, new IHasHpBar.OnHpChangedEventArgs
-        {
-            HpNormalized = HP / buildingScriptableObject.HP
-        });
     }
 }

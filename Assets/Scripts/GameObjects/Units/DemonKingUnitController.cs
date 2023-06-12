@@ -5,6 +5,7 @@ using Unity.Burst.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
 
@@ -32,7 +33,6 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
     [SerializeField]
     private float nextAttackCountDownTimer;
 
-
     //Animation part
     public event EventHandler OnDeathAnimation;
     public event EventHandler DemonKingAttackAnimationEvent;
@@ -49,6 +49,9 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
 
     public float AreaEffect = 10f;
     public float reachingDistance = 5f;
+
+    // Unity Events
+    public UnityEvent onEndGame;
     
     void Start()
     {
@@ -98,6 +101,7 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
         isDeath = false;
         nextWallCountDownTimer = UnityEngine.Random.Range(5f, 10f);
         unitsSetting.ResetSetting();
+        onEndGame.Invoke();
         gameObject.SetActive(false);
     }
 
