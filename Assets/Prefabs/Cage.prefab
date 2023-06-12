@@ -409,6 +409,9 @@ MonoBehaviour:
   isAttacking: 0
   AreaEffect: 0
   reachingDistance: 0
+  onEndGame:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1229127867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -437,6 +440,7 @@ MonoBehaviour:
   Controller: {fileID: 0}
   DController: {fileID: 6386011105359296556}
   effect: {fileID: 1310425256}
+  deathEffect: {fileID: 0}
   animator: {fileID: 0}
   MeshRenderer: {fileID: 8896739721842893469}
   sMeshRenderer: {fileID: 0}
@@ -508,8 +512,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8852bdfa357989844b83ae983ae23a70, type: 3}
-  m_Type: 3
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0

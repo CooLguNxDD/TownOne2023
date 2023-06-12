@@ -126,7 +126,7 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
             // DemonKingStopAttackAnimationEvent?.Invoke(this, EventArgs.Empty);
             return;
         };
-        transform.LookAt(new Vector3(currentTargetObject.transform.position.x, transform.position.y, transform.position.z));
+        transform.LookAt(new Vector3(currentTargetObject.transform.position.x, transform.position.y, currentTargetObject.transform.position.z));
 
         nextAttackCountDownTimer -= Time.deltaTime;
         
