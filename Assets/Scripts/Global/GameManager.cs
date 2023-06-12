@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; set; }
 
     public event EventHandler SpawnCountEvent;
-    public int SpawnCount;
+    public int MinionCount;
+    public int SwordCount;
+    public int ShieldCount;
     // Start is called before the first frame update
 
 
@@ -25,7 +27,9 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("only one GameManager instance available");
         }
-        SpawnCount = 0;
+        MinionCount = 0;
+        SwordCount = 0;
+        ShieldCount = 0;
         Instance = this;
     }
     void Start()

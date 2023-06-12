@@ -9,15 +9,15 @@ public class CounterUI : MonoBehaviour
     // Start is called before the first frame update
 
 
-    public TextMeshProUGUI TextMeshPro;
-    void Start()
-    {
-        
-    }
+    public TextMeshProUGUI SwordCounter;
+    public TextMeshProUGUI ShieldCounter;
+    public TextMeshProUGUI MinionCount;
 
     // Update is called once per frame
     void Update()
     {
-        TextMeshPro.text = "Spawned: "+GameManager.Instance.SpawnCount;
+        SwordCounter.text = GameManager.Instance.SwordCount.ToString();
+        ShieldCounter.text = GameManager.Instance.ShieldCount.ToString();
+        MinionCount.text = GameManager.Instance.MinionCount.ToString();
     }
 }
