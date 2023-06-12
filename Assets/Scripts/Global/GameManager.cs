@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,10 @@ public class GameManager : MonoBehaviour
     public event EventHandler SpawnCountEvent;
     public int SpawnCount;
     // Start is called before the first frame update
+
+    private int deathCount;
+    public int homeBaseCount;
+    public UnityEvent OnGameDeath;
 
     public void Awake(){
         if (Instance == null)
@@ -21,8 +26,19 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-       
+       deathCount = 0;
     }
 
+    void Update()
+    {
+        if (deathCount >= homeBaseCount)
+        {
+            OnGameDeath.Invoke();
+        }
+    }
 
+    public void increDeathCount()
+    {
+        deathCount++;
+    }
 }
