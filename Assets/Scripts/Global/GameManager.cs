@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public int SpawnCount;
     // Start is called before the first frame update
 
+    public float FB_Buff = 0f;
+
     public void Awake(){
         if (Instance == null)
         {
