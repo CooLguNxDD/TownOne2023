@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BuildingSetting : MonoBehaviour, IGameObjectStatus
+public class BuildingSetting : MonoBehaviour, IGameObjectStatus, IHasHpBar
 {
 
     public BuildingScriptableObject buildingScriptableObject;
@@ -33,6 +34,8 @@ public class BuildingSetting : MonoBehaviour, IGameObjectStatus
     private int NumberOfSpawn;
 
     public UnityEvent OnDestroy;
+
+    public event EventHandler<IHasHpBar.OnHpChangedEventArgs> OnHpChanged;
 
 
     // Start is called before the first frame update

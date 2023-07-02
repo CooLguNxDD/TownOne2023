@@ -19,9 +19,9 @@ MonoBehaviour:
   UnitsName: DemonKing
   level: 0
   HP: 2000
-  Damage: 50
+  Damage: 60
   Defence: 0
   WalkingSpeed: 0
   ChaseRange: 64
   AttackSpeed: 2
-  attackRange: 20
+  attackRange: 22

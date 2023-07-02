@@ -9,11 +9,10 @@ public class HpBarController : MonoBehaviour
     [SerializeField] private Image barImage;
     [SerializeField] private Image barImageBG;
     [SerializeField] private Canvas parentCanvas;
+    [SerializeField] private float hpUpdateRateOnScreen;
 
 
     public Camera mainCamera;
-
-
     private IHasHpBar hasHp;
 
     private float LookAtCounter;
@@ -39,7 +38,7 @@ public class HpBarController : MonoBehaviour
         if(LookAtCounter < 0){
             barImage.transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.back, mainCamera.transform.rotation * Vector3.up);
             barImageBG.transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.back, mainCamera.transform.rotation * Vector3.up);
-            LookAtCounter = 0.25f;
+            LookAtCounter = hpUpdateRateOnScreen;
         }
 
     //    transform.Rotate(0,180,0);

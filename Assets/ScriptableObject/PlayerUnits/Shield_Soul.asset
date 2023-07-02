@@ -18,10 +18,10 @@ MonoBehaviour:
   AttackType: 0
   UnitsName: shield_soul
   level: 0
-  HP: 250
+  HP: 300
   Damage: 5
   Defence: 0
-  WalkingSpeed: 12
-  ChaseRange: 20
-  AttackSpeed: 2
-  attackRange: 5
+  WalkingSpeed: 8
+  ChaseRange: 12
+  AttackSpeed: 0.8
+  attackRange: 8

@@ -13,11 +13,15 @@ public class CounterUI : MonoBehaviour
     public TextMeshProUGUI ShieldCounter;
     public TextMeshProUGUI MinionCount;
 
+    public TextMeshProUGUI RateCount;
+
     // Update is called once per frame
     void Update()
     {
         SwordCounter.text = GameManager.Instance.SwordCount.ToString();
         ShieldCounter.text = GameManager.Instance.ShieldCount.ToString();
         MinionCount.text = GameManager.Instance.MinionCount.ToString();
+        float rate = MouseController.Instance.ClickingCoolDownSetting - GameManager.Instance.FB_Buff;
+        RateCount.text = rate.ToString("0.00") + "S";
     }
 }

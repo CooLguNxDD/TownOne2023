@@ -20,7 +20,7 @@ public class CageAnimationTrigger : MonoBehaviour
     void Update()
     {
         if(unitsSetting.GetHP() < 0 && !isAnimationStart){
-            GameManager.Instance.FB_Buff += 0.1f;
+            GameManager.Instance.FB_Buff += 0.05f;
             isAnimationStart = true;
             OnSBAnimationStart?.Invoke(this, EventArgs.Empty);
         }

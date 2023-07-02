@@ -18,10 +18,10 @@ MonoBehaviour:
   AttackType: 0
   UnitsName: Demon
   level: 0
-  HP: 100
-  Damage: 40
+  HP: 80
+  Damage: 30
   Defence: 0
   WalkingSpeed: 16
   ChaseRange: 32
-  AttackSpeed: 2
-  attackRange: 8
+  AttackSpeed: 0.65
+  attackRange: 12

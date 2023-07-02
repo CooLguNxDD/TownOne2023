@@ -16,7 +16,7 @@ MonoBehaviour:
   BuildingTag: EnemySpawnerGate
   UnitsType: 1
   BuildingName: EnemySpawnerGate
-  HP: 2000
+  HP: 150
   level: 0
   Damage: 50
   Defence: 0
@@ -25,5 +25,5 @@ MonoBehaviour:
   AttackSpeed: 2
   SpawnObject: {fileID: 6775160313621422478, guid: 8e38c47ac87c6134f93f42222f35ff8a,
     type: 3}
-  SpawnRate: 5
+  SpawnRate: 4
   NumberOfSpawn: 2

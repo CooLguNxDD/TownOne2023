@@ -53,21 +53,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3899389395469396941, guid: 443bfc20a0b6cad409f8620a426d80bb,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899389395469396941, guid: 443bfc20a0b6cad409f8620a426d80bb,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899389395469396941, guid: 443bfc20a0b6cad409f8620a426d80bb,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899389395469396941, guid: 443bfc20a0b6cad409f8620a426d80bb,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -116,17 +101,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6146877775184733801, guid: 443bfc20a0b6cad409f8620a426d80bb,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6146877775184733801, guid: 443bfc20a0b6cad409f8620a426d80bb,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8852bdfa357989844b83ae983ae23a70,
-        type: 3}
     - target: {fileID: 7412839336528326594, guid: 443bfc20a0b6cad409f8620a426d80bb,
         type: 3}
       propertyPath: deathEffect
@@ -140,35 +114,16 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3415510967153789510}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4144712618622807105 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1649072871637542407, guid: 443bfc20a0b6cad409f8620a426d80bb,
+--- !u!114 &6727645379810393712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8231226572468810806, guid: 443bfc20a0b6cad409f8620a426d80bb,
     type: 3}
   m_PrefabInstance: {fileID: 3415510967153789510}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8231226572468810806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4144712618622807105}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c060ddf12fe59e541adc43112db45d4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitsSetting: {fileID: 5161004274929115852}
---- !u!114 &5161004274929115852 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7564296040280172682, guid: 443bfc20a0b6cad409f8620a426d80bb,
-    type: 3}
-  m_PrefabInstance: {fileID: 3415510967153789510}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4144712618622807105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2bad7cbe3a831b448231475e9b80bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6996934233346542345
@@ -809,7 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78397f1ca5c57641b6af3a744b31966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cageAnimationTrigger: {fileID: 8231226572468810806}
+  cageAnimationTrigger: {fileID: 6727645379810393712}
   startEffect: {fileID: 2211851489983973744}
   animator: {fileID: 919132149320001925}
 --- !u!1001 &8279790168037642835

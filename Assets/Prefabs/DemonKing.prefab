@@ -410,8 +410,11 @@ MonoBehaviour:
   animationController: {fileID: 7412839336528326594}
   isDeath: 0
   isAttacking: 0
-  AreaEffect: 10
-  reachingDistance: 5
+  AreaEffect: 15
+  reachingDistance: 6
+  onEndGame:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4178122052840781612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +556,7 @@ MonoBehaviour:
   barImage: {fileID: 6146877775184733801}
   barImageBG: {fileID: 4478118754152239119}
   parentCanvas: {fileID: 5703171993691008856}
+  hpUpdateRateOnScreen: 0
   mainCamera: {fileID: 0}
 --- !u!1001 &3326040144548311854
 PrefabInstance:
@@ -574,17 +578,17 @@ PrefabInstance:
     - target: {fileID: 6990118208600441396, guid: 9ab8d41d22b948a4a8cafe5ded8e97b9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.938
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6990118208600441396, guid: 9ab8d41d22b948a4a8cafe5ded8e97b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.57
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6990118208600441396, guid: 9ab8d41d22b948a4a8cafe5ded8e97b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6990118208600441396, guid: 9ab8d41d22b948a4a8cafe5ded8e97b9,
         type: 3}
@@ -620,6 +624,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806332979488103203, guid: 9ab8d41d22b948a4a8cafe5ded8e97b9,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806332979488103203, guid: 9ab8d41d22b948a4a8cafe5ded8e97b9,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].time
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ab8d41d22b948a4a8cafe5ded8e97b9, type: 3}

@@ -64,8 +64,6 @@ public class dissolverController : MonoBehaviour
                 materials.Add(material);
             }
         }
-
-
         effect.Stop();
         deathEffect.Stop();
 
@@ -88,28 +86,30 @@ public class dissolverController : MonoBehaviour
         // }
 
         // yield return new WaitForSeconds(2f);
-
         if (effect != null)
             effect.Play();
-
+        deathEffect.Play();
         yield return new WaitForSeconds(0.5f);
-
+        
         foreach (var material in materials)
         {
             material.DOFloat(1f, DissolveRef, 2f);
         }
-        deathEffect.Play();
+        
 
         yield return new WaitForSeconds(2f);
+        deathEffect.Stop();
+        effect.Stop();
 
         //reset materials
         foreach (var material in materials)
         {
             material.SetFloat(DissolveRef, 0f);
         }
-        deathEffect.Stop();
-        effect.Stop();
+
+
         OnDeathAnimationEnded?.Invoke(this, EventArgs.Empty);
+
         yield return null;
     }
 }

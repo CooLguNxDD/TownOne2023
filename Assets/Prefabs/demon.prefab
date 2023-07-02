@@ -234,10 +234,10 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 0.4391445, y: 2.61366, z: 7.2733374, w: 0}
+      - m_Value: {x: 7.603486, y: 0.24388489, z: 0.31586832, w: 0}
         m_Name: Color
         m_Overridden: 1
-      - m_Value: {x: 0, y: 0.016872995, z: 0.5188679, w: 0.50980395}
+      - m_Value: {x: 0.3207547, y: 0, z: 0.008617689, w: 0.50980395}
         m_Name: Color_Dark
         m_Overridden: 1
     m_Uint:
@@ -387,6 +387,7 @@ MonoBehaviour:
   barImage: {fileID: 2525094783862448136}
   barImageBG: {fileID: 6866380462490382093}
   parentCanvas: {fileID: 546551457325212305}
+  hpUpdateRateOnScreen: 0.05
   mainCamera: {fileID: 0}
 --- !u!1 &6775160313621422478
 GameObject:
@@ -426,7 +427,7 @@ Transform:
   - {fileID: 6095777608340628413}
   - {fileID: 5764008265490915020}
   - {fileID: 1998642973085349407}
-  - {fileID: 5903854998171690078}
+  - {fileID: 5889711315665010883}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -568,12 +569,12 @@ MonoBehaviour:
   Controller: {fileID: 2808851724211737919}
   DController: {fileID: 0}
   effect: {fileID: 1581250466086564883}
-  deathEffect: {fileID: 6681932078933654857}
+  deathEffect: {fileID: 6694667061708151252}
   animator: {fileID: 0}
   MeshRenderer: {fileID: 7499764592506361565}
   sMeshRenderer: {fileID: 0}
   newController: 1
---- !u!1001 &3526133442300257898
+--- !u!1001 &3512128508427059959
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -593,17 +594,17 @@ PrefabInstance:
     - target: {fileID: 6990118208600441396, guid: fe59ad9309e33e247be16a49f799015e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.938
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6990118208600441396, guid: fe59ad9309e33e247be16a49f799015e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.57
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6990118208600441396, guid: fe59ad9309e33e247be16a49f799015e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6990118208600441396, guid: fe59ad9309e33e247be16a49f799015e,
         type: 3}
@@ -642,17 +643,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe59ad9309e33e247be16a49f799015e, type: 3}
---- !u!4 &5903854998171690078 stripped
+--- !u!4 &5889711315665010883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6990118208600441396, guid: fe59ad9309e33e247be16a49f799015e,
     type: 3}
-  m_PrefabInstance: {fileID: 3526133442300257898}
+  m_PrefabInstance: {fileID: 3512128508427059959}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &6681932078933654857 stripped
+--- !u!198 &6694667061708151252 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7806332979488103203, guid: fe59ad9309e33e247be16a49f799015e,
     type: 3}
-  m_PrefabInstance: {fileID: 3526133442300257898}
+  m_PrefabInstance: {fileID: 3512128508427059959}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5985904086783951958
 PrefabInstance:

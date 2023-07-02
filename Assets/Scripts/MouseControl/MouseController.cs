@@ -28,7 +28,7 @@ public class MouseController : MonoBehaviour
     void Update()
     {
         ClickingCoolDown -= Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && ClickingCoolDown < 0f)
+        if (Input.GetMouseButton(0) && ClickingCoolDown < 0f)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -40,7 +40,7 @@ public class MouseController : MonoBehaviour
                 ClickingCoolDown = ClickingCoolDownSetting - GameManager.Instance.FB_Buff;
             }
         }
-        else if (Input.GetMouseButtonDown(1) && ClickingCoolDown < 0f)
+        else if (Input.GetMouseButton(1) && ClickingCoolDown < 0f)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

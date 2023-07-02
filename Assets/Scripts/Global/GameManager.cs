@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int MinionCount;
     public int SwordCount;
     public int ShieldCount;
+
+    
     // Start is called before the first frame update
 
 

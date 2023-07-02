@@ -50,7 +50,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
     void Start()
     {
         isDeath = false;
-        nextTargetCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
+        nextTargetCountDownTimer = UnityEngine.Random.Range(0.5f, 2f);
         nextWallCountDownTimer = UnityEngine.Random.Range(5f, 10f);
         nextAttackCountDownTimer = 0;
         animationController.OnDeathAnimationEnded += DeathAfterAnimation;
@@ -85,7 +85,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         if(targetFound){
             nextTargetCountDownTimer -= Time.deltaTime;
             if(nextTargetCountDownTimer < 0f){
-                nextTargetCountDownTimer = UnityEngine.Random.Range(0.5f, 3f);
+                nextTargetCountDownTimer = UnityEngine.Random.Range(0.5f, 2f);
                 targetFound = false;
                 // Debug.Log("next target");
             }
@@ -94,8 +94,18 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
     private void DeathAfterAnimation(object sender, System.EventArgs e){
         isAttacking = false;
         isDeath = false;
-        nextWallCountDownTimer = UnityEngine.Random.Range(5f, 10f);
+        nextWallCountDownTimer = UnityEngine.Random.Range(1f, 3f);
         unitsSetting.ResetSetting();
+        if(unitsSetting.getUnitsName() == "shield_soul"){
+            GameManager.Instance.ShieldCount -= 1;
+        }
+        if(unitsSetting.getUnitsName() == "sword_soul"){
+            GameManager.Instance.SwordCount -= 1;
+        }
+        if(unitsSetting.getUnitsName() == "Demon"){
+            GameManager.Instance.MinionCount -= 1;
+        }
+
         gameObject.SetActive(false);
 
     }
@@ -111,6 +121,8 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
 
         if(!currentTargetObject) {
             isAttacking = false;
+            NavMeshAgent.isStopped = false;
+            setNavMeshSpeed(unitsSetting.getWalkingSpeed());
             return;
         };
 
@@ -118,25 +130,34 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
         
         if(nextAttackCountDownTimer < 0){
             StartAttack();
-            nextAttackCountDownTimer = unitsSetting.GetAttackSpeed();
+            
         }
     }
     //deal one attack
     public void StartAttack(){
         //Debug.Log(unitsSetting.getAttackRange());
         //Debug.Log(Vector3.Distance(transform.position, currentTargetObject.transform.position));
-        if(Vector3.Distance(transform.position, currentTargetObject.transform.position) < unitsSetting.getAttackRange()){
+        if(Vector3.Distance(
+            new Vector3(transform.position.x, 0, transform.position.z),
+            new Vector3(currentTargetObject.transform.position.x, 0, currentTargetObject.transform.position.z))< unitsSetting.getAttackRange()){
+
+            // Debug.Log(unitsSetting.getAttackRange() - Vector3.Distance(
+            // new Vector3(transform.position.x, 0, transform.position.z),
+            // new Vector3(currentTargetObject.transform.position.x, 0, currentTargetObject.transform.position.z)));
             setNavMeshSpeed(0f);
+            NavMeshAgent.isStopped = true;
+
             isAttacking = true;
             IGameObjectStatus targetStatus = currentTargetObject.GetComponent<IGameObjectStatus>();
             targetStatus.takenDamage(unitsSetting.getAttackDamage());
-            isAttacking = false;
+            nextAttackCountDownTimer = unitsSetting.GetAttackSpeed();
             //Debug.Log("target damaged: " + targetStatus.GetHP());
             //unitsSetting.SetHP(0f); //killed when reached the wall
         
         }
         else{
             isAttacking = false;
+            NavMeshAgent.isStopped = false;
             setNavMeshSpeed(unitsSetting.getWalkingSpeed());
         }
     }
@@ -253,7 +274,7 @@ public class PlayerUnitController : MonoBehaviour, IUnitBehavior
                             }
                         }
                     }
-                    nextWallCountDownTimer = UnityEngine.Random.Range(5f, 10f);
+                    nextWallCountDownTimer = UnityEngine.Random.Range(1f, 2f);
                 }
                 
                 

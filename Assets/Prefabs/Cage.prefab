@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 6386011105359296556}
   - component: {fileID: 1229127867}
   - component: {fileID: 7412839336528326594}
+  - component: {fileID: 8231226572468810806}
   m_Layer: 0
   m_Name: Cage
   m_TagString: Untagged
@@ -319,7 +320,7 @@ Transform:
   m_GameObject: {fileID: 1649072871637542407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7707120128030248475}
@@ -445,6 +446,19 @@ MonoBehaviour:
   MeshRenderer: {fileID: 8896739721842893469}
   sMeshRenderer: {fileID: 0}
   newController: 2
+--- !u!114 &8231226572468810806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649072871637542407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c060ddf12fe59e541adc43112db45d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitsSetting: {fileID: 7564296040280172682}
 --- !u!1 &6224664726094384095
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,8 +526,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 8852bdfa357989844b83ae983ae23a70, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
@@ -538,6 +552,7 @@ MonoBehaviour:
   barImage: {fileID: 6146877775184733801}
   barImageBG: {fileID: 4478118754152239119}
   parentCanvas: {fileID: 5703171993691008856}
+  hpUpdateRateOnScreen: 0.2
   mainCamera: {fileID: 0}
 --- !u!1001 &7890176329620711920
 PrefabInstance:

@@ -135,7 +135,7 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
                 //NavMeshAgent.isStopped = true;
                 StartAttack();
                 DemonKingAttackAnimationEvent?.Invoke(this, EventArgs.Empty);
-                nextAttackCountDownTimer = unitsSetting.GetAttackSpeed();
+                
             }
             else{
                 isAttacking = false;
@@ -165,6 +165,7 @@ public class DemonKingUnitController : MonoBehaviour, IUnitBehavior{
                 }
             }
         }
+        nextAttackCountDownTimer = unitsSetting.GetAttackSpeed();
         if(targetStatus.GetHP() < 0f){
             currentTargetObject = null;
             targetFound = false;
